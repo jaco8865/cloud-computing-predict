@@ -10,10 +10,10 @@ $(function () {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
             console.log('Capturing Data')
-            var Name = $("input#Name").val();
-            var Email = $("input#Email").val();
-            var Cell = $("input#Cell").val();
-            var Message = $("textarea#Message").val();
+            var name = $("input#name").val();
+            var email = $("input#email").val();
+            var phone = $("input#phone").val();
+            var message = $("textarea#message").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(" ") >= 0) {
@@ -21,7 +21,7 @@ $(function () {
             }
             $this = $("#sendMessageButton");
             $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
-            var json = {name: name, phone: Cell, email: Email, message: Message}
+            var json = {name: name, phone: phone, email: email, message: message}
             $.ajax({
                 // --- CHANGE THIS LINE TO YOUR OWN API GATEWAY  -------- 
                 url: 'https://mbjv5l8wll.execute-api.eu-west-1.amazonaws.com/Predict_Function',
